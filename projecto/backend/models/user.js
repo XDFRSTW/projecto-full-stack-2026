@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-
+// Módelo de usuario en la base de datos
 const userSchema = new mongoose.Schema({
     username: {type: String, required: true},
     password: {type: String, required: true},
@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
     adminLv : {type: Number, required: true}
 
 });
-
+// Generar una contraseña aleatoria a partir de la introducida
 userSchema.pre("save", async function() {
      if(!this.isModified("password"));
     const salt = await bcrypt.genSalt(10);

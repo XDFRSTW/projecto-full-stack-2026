@@ -1,6 +1,7 @@
 // Esto es necesario para que mongoDB funcione
 require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 // Constantes de los módulos instalados
+const bcrypt = require("bcrypt");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const express = require("express");

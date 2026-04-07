@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 const { userRegister, userLogin, getUser, updateUser, deleteUser } = require("../controllers/user-controller");
 const authMiddleware = require("../middlewares/auth");
 

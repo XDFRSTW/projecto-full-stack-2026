@@ -1,12 +1,12 @@
 const User = require("../models/user");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 // registrar usuarios
 async function userRegister(req, res){
  const { username, password, userImage, userDescr, products, cart, adminLv } = req.body;
     try {
-        const salt = await bcrypt.genSalt(10);
+        // const salt = await bcrypt.genSalt(10);
 
         const newUser = new User({
             username,
