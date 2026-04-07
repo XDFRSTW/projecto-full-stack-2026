@@ -1,6 +1,6 @@
 const User = require("../models/user");
-const bcrypt = require("bcrypt");
-// const bcryptjs = require("bcryptjs");
+// const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // registrar usuarios
@@ -33,7 +33,7 @@ async function userLogin(req, res){
         if (!user) {
             return res.status(400).json({ message: "Usuario no encontrado" });
         }
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await bcryptjs.compare(password, user.password);
         if(!isMatch) {
             return res.status(400).json({ message: "Contraseña incorrecta" });
         }
