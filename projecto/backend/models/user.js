@@ -21,3 +21,12 @@ userSchema.pre("save", async function() {
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+
+// Esto de aquí es para copiar y pegar rápidamente el modelo de usuario a portman
+// "username": "pablo",
+//     "password": "123",
+//     "userImage" : "https://i.pinimg.com/originals/9d/7c/74/9d7c745207ba381b7bc4d41912ef4196.jpg?nii=t",
+//     "userDescr" : "lo suponía",
+//     "products" : 0,
+//     "cart" : 0,
+//     "adminLv": 0 

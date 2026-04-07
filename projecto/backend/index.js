@@ -6,7 +6,11 @@ const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
 // Constantes de archivos del projecto
+// Router del usuario
 const userRouter = require("./routers/user-router");
+// Router del producto
+const productRouter = require("./routers/product-router");
+// Control de errores
 const notFound = require ("./middlewares/404");
 const internalServerError = require ("./middlewares/500");
 // const authMiddleware = require("./middlewares/auth");
@@ -20,12 +24,14 @@ const MONGO_UNI = process.env.MONGO_UNI;
 
 app.use(cors());
 app.use(express.json());
-
+//Conectandoa mongoo
 mongoose.connect(MONGO_UNI)
     .then(() => console.log("Inicializando"))
     .catch((err => console.error("No ha podido conectarse a la base de datos", err)));
-
+// usando el router del usuario
 app.use("/users", userRouter);
+// usando el router del producto
+app.use("/products", productRouter);
 // app.use(authMiddleware);
 app.use(notFound);
 app.use(internalServerError);

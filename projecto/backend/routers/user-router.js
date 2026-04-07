@@ -1,5 +1,4 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
 const { userRegister, userLogin, getUser, updateUser, deleteUser } = require("../controllers/user-controller");
 const authMiddleware = require("../middlewares/auth");
 
@@ -12,8 +11,8 @@ router.post("/register", userRegister);
 // router para obtener los datos del usuario
 router.get("/", getUser)
 // router para cambiar los datos del  usuario
-router.put("/update", updateUser)
+router.put("/update/:id", updateUser)
 // router para eliminar usuario
-router.delete("/delete", deleteUser)
+router.delete("/delete/:id", deleteUser)
 
 module.exports = router;
