@@ -4,6 +4,7 @@
     "fs": "^0.0.1-security",
     "mongoose": "^9.1.5",
     "stream": "^0.0.3",
-    "bcrypt": "^6.0.0"
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6"
   }
 }
