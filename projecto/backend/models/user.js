@@ -6,9 +6,7 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true},
     userImage : {type: String, required: true},
     userDescr : {type: String, required: true},
-    products : {type: Number, required: true},
-    cart : {type: Number, required: true},
-    adminLv : {type: Number, required: true}
+    adminLv : {type: String, required: true}
 
 });
 // Generar una contraseña aleatoria a partir de la introducida
@@ -27,6 +25,4 @@ module.exports = User;
 //     "password": "123",
 //     "userImage" : "https://i.pinimg.com/originals/9d/7c/74/9d7c745207ba381b7bc4d41912ef4196.jpg?nii=t",
 //     "userDescr" : "lo suponía",
-//     "products" : 0,
-//     "cart" : 0,
-//     "adminLv": 0 
+//     "adminLv": "0" 
