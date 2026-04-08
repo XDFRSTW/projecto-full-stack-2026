@@ -12,6 +12,7 @@
     "express": "^5.2.1",
     "fs": "^0.0.1-security",
     "mongoose": "^9.1.5",
-    "stream": "^0.0.3"
+    "stream": "^0.0.3",
+    "jsonwebtoken": "^9.0.3"
   }
 }
