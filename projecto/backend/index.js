@@ -10,6 +10,8 @@ const mongoose = require("mongoose");
 const userRouter = require("./routers/user-router");
 // Router del producto
 const productRouter = require("./routers/product-router");
+// Router del carrito
+const cartRouter = require("./routers/cart-router");
 // Control de errores
 const notFound = require ("./middlewares/404");
 const internalServerError = require ("./middlewares/500");
@@ -32,6 +34,8 @@ mongoose.connect(MONGO_UNI)
 app.use("/users", userRouter);
 // usando el router del producto
 app.use("/products", productRouter);
+// usando el router del carrito
+app.use("/carts", cartRouter);
 // app.use(authMiddleware);
 app.use(notFound);
 app.use(internalServerError);

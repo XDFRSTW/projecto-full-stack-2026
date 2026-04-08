@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-// Módelo de usuario en la base de datos
+// Módelo de producto en la base de datos
 const productSchema = new mongoose.Schema({
     userId: {type: String, required: true},
     ownerName: {type: String, required: true},
     name: {type: String, required: true},
     desrc: {type: String, required: true},
     image : {type: String, required: true},
-    price : {type: Number, required: true},
+    price : {type: String, required: true},
     localization : {type: String, required: true},
     contact : {type: String, required: true},
     productNumber : {type: Number, required: true}
