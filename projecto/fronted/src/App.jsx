@@ -6,6 +6,7 @@ import './index.css'
 import Home from './components/home';
 // Página de iniciar sesión o registrarse
 import RegLog from './components/RegLog';
+import Perfil from './components/Perfil';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<RegLog />} />
+          <Route path="/Perfil" element={<Perfil />} />
         </Routes>
       </Router>
     </>
