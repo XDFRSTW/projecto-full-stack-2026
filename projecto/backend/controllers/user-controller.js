@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 // registrar usuarios
 async function userRegister(req, res) {
-    const { username, password, userImage, userDescr, adminLv } = req.body;
+    const { username, password, userImage, adminLv } = req.body;
     try {
         // const salt = await bcrypt.genSalt(10);
 
@@ -12,7 +12,6 @@ async function userRegister(req, res) {
             username,
             password,
             userImage,
-            userDescr,
             adminLv
         });
 
@@ -54,12 +53,11 @@ async function getUser(req, res) {
 async function updateUser(req, res) {
     try {
         const { id } = req.params;
-        const { username, password, userImage, userDescr, products, cart, adminLv } = req.body;
+        const { username, password, userImage, adminLv } = req.body;
         const updateUser = await User.findByIdAndUpdate(id, {
             username,
             password,
             userImage,
-            userDescr,
             adminLv
         });
         if (!updateUser) {

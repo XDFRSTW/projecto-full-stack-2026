@@ -92,47 +92,56 @@ const RegLog = () => {
 
     return (
         <>
-            <div>
-                <div>
+            {/* Como usar he usado tailwind */}
+            <div className="regLog-border bg-gray-900/20">
+                <div className="regLog-center flex">
 
                     {/* Título de la web */}
-                    <header>
-                        <h1>Galena</h1>
+                    <header className="regLog-flex flex mt-4">
+                        <h1 className="regLog-title">Galena</h1>
                     </header>
 
                     {/* Imagen del mineral "Galena" */}
-                    <div><img className="regLog-Image" src="Galena.png" alt="Galena" title="Galena" /></div>
+                    <div className="regLog-flex flex mt-28"><img className="regLog-Image" src="Galena.png" alt="Galena" title="Galena" /></div>
 
                     {/* Información proporcionada al usuario */}
-                    <div>
-                        <p>Una vez registrado, vuelve a introducir los datos seleccionando la opción "Iniciar sesión" (si no sucede nada es porque los datos se han colocado mal). La creación del usuario puede llevar un rato, un mensaje por pantalla te avisará de ello</p>
+                    <div className="regLog-info regLog-flex flex mt-28">
+                        <p className="regLog-info-text mt-28">Una vez registrado, vuelve a introducir los datos seleccionando la opción "Iniciar sesión" (si no sucede nada es porque los datos se han colocado mal). La creación del usuario puede llevar un rato, un mensaje por pantalla te avisará de ello (a veces el mensaje se equivoca y no se crea el usuario).</p>
                     </div>
 
-                    <div>
+                    <div className="regLog-flex regLog-averageFontSize flex mt-12">
                         {/* Botones para intercalar la funcionalidad del formulario */}
-                        <button onClick={() => setAction(regLog = true)}>Registrarse</button>
-                        <button onClick={() => setAction(regLog = false)}>Iniciar sesión</button>
+                        <button className={regLog == true ? ("regLog-mark") : ("regLog-regLog")} onClick={() => setAction(regLog = true)}>Registrarse</button>
+                        <button className={regLog == false ? ("regLog-mark") : ("regLog-regLog")} onClick={() => setAction(regLog = false)}>Iniciar sesión</button>
                     </div>
 
-                    <div>
+                    <div className="regLog-averageFontSize flex mt-24">
                         {/* Formulario para iniciar sesión o registrarse */}
-                        <form onSubmit={regLog == true ? handleRegister : handleLogin}>
+                        <form className="regLog-column flex bg-gray-200" onSubmit={regLog == true ? handleRegister : handleLogin}>
+
                             {/* Nombre usuario */}
-                            <label htmlFor="name">Nombre de usuario</label>
+                            <label htmlFor="name">Nombre de usuario : </label>
                             <input value={username} type="text" title="name" placeholder="*escribe"
                                 required id="name" onChange={(e) => setUsername(e.target.value)} />
                             {/*  Contraseña */}
-                            <label htmlFor="pin">Contraseña</label>
+                            <label htmlFor="pin">Contraseña : </label>
                             <input value={password} type="password" title="pin" placeholder="*escribe"
                                 required id="pin" onChange={(e) => setPassword(e.target.value)} />
+
                             {/* Botón para subir datos */}
                             <button type="submit">Enviar</button>
+
                         </form>
                     </div>
-                    
-                    <p>{message}</p>
+
+                    <p className="regLog-averageFontSize">{message}</p>
                 </div>
+
             </div>
+            <footer className="regLog-footer flex bg-gray-100">
+                <p className="mt-24">[Cualquier inconveniente llamar a este número: +58 285 501 66 87 33]</p>
+            </footer>
+
         </>
     )
 }

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 // crear producto
 async function createProduct(req, res) {
-    const { userId, ownerName, name, desrc, image, price, localization, contact, productNumber } = req.body;
+    const { userId, ownerName, name, desrc, image, price, localization, contact } = req.body;
     try {
         // const salt = await bcrypt.genSalt(10);
 
@@ -16,8 +16,7 @@ async function createProduct(req, res) {
             image,
             price,
             localization,
-            contact,
-            productNumber
+            contact
         });
 
         await newProduct.save();
@@ -58,7 +57,7 @@ async function getProducts(req, res) {
 async function updateProduct(req, res) {
     try {
         const { id } = req.params;
-        const { userId, ownerName, name, desrc, image, price, localization, contact, productNumber } = req.body;
+        const { userId, ownerName, name, desrc, image, price, localization, contact } = req.body;
         const updateProduct = await Product.findByIdAndUpdate(id, {
            userId,
             ownerName,
@@ -67,8 +66,7 @@ async function updateProduct(req, res) {
             image,
             price,
             localization,
-            contact,
-            productNumber
+            contact
         });
         if (!updateProduct) {
             return res.status(404).json({ message: "no se ha encontrado el producto" });

@@ -8,8 +8,7 @@ const productSchema = new mongoose.Schema({
     image : {type: String, required: true},
     price : {type: String, required: true},
     localization : {type: String, required: true},
-    contact : {type: String, required: true},
-    productNumber : {type: Number, required: true}
+    contact : {type: String, required: true}
 });
 
 const Product = mongoose.model("Product", productSchema);
@@ -24,5 +23,4 @@ module.exports = Product;
 //     "image" : "",
 //     "price" : 0,
 //     "localization" : "non",
-//     "contact" : "non",
-//     "productNumber" : 1
+//     "contact" : "non"

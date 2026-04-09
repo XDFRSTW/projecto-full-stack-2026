@@ -1,6 +1,66 @@
 @import "tailwindcss";
 
-.regLog-Image{
-    width: 100px;
+/* Css relacionado con la página de registrarse e iniciar sesión */
+.regLog-Image {
+    width: 40vw;
     height: auto;
+}
+
+.regLog-border {
+    border: 1vw solid rgb(92, 92, 92);
+    border-bottom: transparent;
+    height: 200vw;
+}
+
+.regLog-center {
+    flex-direction: column;
+    align-items: center;
+}
+
+.regLog-flex {
+    justify-content: center;
+}
+
+.regLog-title {
+    font-size: 16vw;
+    color: rgb(54, 54, 54);
+}
+
+.regLog-info {
+    text-align: center;
+    font-size: 2.8vw;
+    margin: auto 2vw auto 2vw;
+}
+
+.regLog-info-text {
+    border: 0.5px solid black;
+}
+
+.regLog-averageFontSize {
+    font-size: 3.8vw;
+}
+
+.regLog-column {
+    flex-direction: column;
+    align-content: center;
+}
+
+.regLog-footer {
+    font-size: 2.8vw;
+    justify-content: center;
+    align-items: center;
+    border: 1vw solid rgb(92, 92, 92);
+    border-top: transparent;
+    height: 60vw;
+}
+
+.regLog-mark {
+    margin: auto 2vw auto 2vw;
+    background-color: rgb(225, 225, 225);
+    border: 1px solid black;
+}
+
+.regLog-regLog {
+    margin: auto 2vw auto 2vw;
+    background-color: transparent;
 }
