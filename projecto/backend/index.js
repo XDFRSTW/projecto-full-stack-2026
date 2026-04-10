@@ -24,6 +24,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGO_UNI = process.env.MONGO_UNI;
 
+app.get('/', (_req, res) => {
+  res.send('Funciona')
+})
+
 app.use(cors());
 app.use(express.json());
 //Conectandoa mongoo
