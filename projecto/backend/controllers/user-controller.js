@@ -42,6 +42,7 @@ async function userLogin(req, res) {
 // Obtener datos de usuario
 async function getUser(req, res) {
     // res.status(200).json({ user: req.user });
+    console.log(1)
     try {
         const users = await User.find();
         res.status(200).json(users);
