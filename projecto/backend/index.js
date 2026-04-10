@@ -24,6 +24,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGO_UNI = process.env.MONGO_UNI;
 
+console.log("index")
+
 app.get('/', (_req, res) => {
   res.send('Funciona')
 })

@@ -4,12 +4,14 @@ const authMiddleware = require("../middlewares/auth");
 
 const userRouter = express.Router();
 
+ console.log("router")
+
 // router para iniciar sesión
 userRouter.post("/login", userLogin);
 // router para registrarse
 userRouter.post("/register", userRegister);
 // router para obtener los datos del usuario
-userRouter.get("/", getUser, console.log("router"))
+userRouter.get("/", getUser)
 // router para cambiar los datos del  usuario
 userRouter.put("/update/:id", updateUser)
 // router para eliminar usuario
