@@ -18,7 +18,7 @@ const Home = () => {
     function fetchFix() {
         fetch("http://localhost:3000/users")
             .then((response) => response.json())
-            .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log("buscando usuario..."); }))
+            .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(); }))
             .catch((error) => console.error("Error al obtener el usuario", error));
     }
     // Si la contraseña no vale esto, se ejecuta el código

@@ -28,40 +28,32 @@ const Perfil = () => {
 
 
 
-    // Por si necesito este código en el archivo
+    // Este código necesita ejecutarse dos veces para funcionar
 
-
-    // Variable importante para el funcionamiento de la página (el motivo de estar en mayúscula es otro, al igual de no tener nada quever el nombre con su función. Guarda la contraseña del usuario)
-    // let Desolation = localStorage.getItem("Desolation");
-
-    // // Sistema para autentificar usuario
-    // // Para que las listas funcionen
-    // let length = 0;
-    // // Buscamos el espacio del array en el que se encuentra el usuario
-    // function fetchFix() {
-    //     fetch("http://localhost:3000/users")
-    //         .then((response) => response.json())
-    //         .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log("buscando usuario..."); }))
-    //         .catch((error) => console.error("Error al obtener el usuario", error));
-    // }
-    // // Si la contraseña no vale esto, se ejecuta el código
-    // if (Desolation != "Not yet") {
-    //     useEffect(() => {
-    //         fetchFix()
-    //         if (Desolation) {
-    //             fetch("http://localhost:3000/users", {
-    //                 headers: {
-    //                     Authorization: `Bearer ${Desolation}`,
-    //                 },
-    //             })
-    //                 // console.log(data.username))
-    //                 .then((response) => response.json())
-    //                 .then((data) => localStorage.setItem("User", data[length].username), localStorage.setItem("Desolation", "Not yet"))
-    //                 .catch((error) => console.error("Error al obtener el usuario", error));
-    //         }
-    //         console.log(length)
-    //     }, []);
-    // }
+    let Desolation = localStorage.getItem("Desolation");
+    let length = 0;
+    function fetchFix() {
+        fetch("http://localhost:3000/users")
+            .then((response) => response.json())
+            .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(); }))
+            .catch((error) => console.error("Error al obtener el usuario", error));
+    }
+    if (Desolation != "Not yet") {
+        useEffect(() => {
+            fetchFix()
+            if (Desolation) {
+                fetch("http://localhost:3000/users", {
+                    headers: {
+                        Authorization: `Bearer ${Desolation}`,
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((data) => localStorage.setItem("User", data[length].username), localStorage.setItem("Desolation", "Not yet"))
+                    .catch((error) => console.error("Error al obtener el usuario", error));
+            }
+            console.log(length)
+        }, []);
+    }
 
     // Función para cambiar la foto de perfil del usuario
     const handleUserImage = async (e) => {
@@ -81,33 +73,33 @@ const Perfil = () => {
     return (
         <>
             {/* Título */}
-            <header>
+            < header >
                 {/* Foto de perfil */}
-                <div>
+                < div >
 
-                </div>
+                </div >
                 {/* Datos del perfil y enlace a la foto */}
-                <div>
+                < div >
 
-                </div>
+                </div >
                 {/* Eliminar perfil */}
-                <div>
+                < div >
 
-                </div>
+                </div >
                 {/* ¿seguro que quieres eliminar tu perfil? */}
-                <div>
+                < div >
                     <p>¿Estas seguro de eliminar tu perfil?</p>
                     <div>
                         <button onClick={console.log("En producción")}>Si</button>
                         <button onClick={console.log("En producción")}>No</button>
                     </div>
 
-                </div>
+                </div >
 
-            </header>
+            </header >
 
             {/* Contenido "principal" */}
-            <main>
+            < main >
                 <div><a href="/Home" title="volver">Volver</a></div>
                 <h2>Crear nuevo projecto</h2>
                 {/* Formulario para crear un producto */}
@@ -161,7 +153,7 @@ const Perfil = () => {
                         <button type="Submit" title="Crear un producto">Crear</button>
                     </div>
                 </form>
-            </main>
+            </main >
         </>
     )
 }
