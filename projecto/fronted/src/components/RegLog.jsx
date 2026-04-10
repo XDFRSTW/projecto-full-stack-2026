@@ -20,14 +20,22 @@ const RegLog = () => {
 
 
 
+    //    Reiniciar valores
+    // const handleReset = () => {
+    //     setTimeout(() => {
+    //         setMessage(message = "")
+    //     }, (2000))
+    //     setReject(rejectRegister = false)
+    // }
+
     // Función para registrarse
     const handleRegister = async (e) => {
         e.preventDefault();
         // http://localhost:3000/users
-        // 
+        // https://projecto-full-stack-2026-jn3d-fbej6vcc8.vercel.app/users
 
         // Nos aseguramos antes de nada que el nombre de usuario no exista
-        fetch("https://projecto-full-stack-2026-jn3d-fbej6vcc8.vercel.app/users")
+        fetch("http://localhost:3000/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log("buscando usuarios...") }))
             .catch((error) => console.error("Error al obtener el mensaje", error));
@@ -40,13 +48,13 @@ const RegLog = () => {
         // Esperamos unos segundos para confirmar si existe el usuario
         setTimeout(() => {
             if (rejectRegister == false) {
-                
-                // http://localhost:3000/users/register
+
                 // 
+                // https://projecto-full-stack-2026-jn3d-fbej6vcc8.vercel.app/users/register
 
                 try {
                     // await ha sido eliminado del fetch para que no se repitan los nombres de usuario (era la solución más simple que había podido encontrar)
-                    const response = fetch("https://projecto-full-stack-2026-jn3d-fbej6vcc8.vercel.app/users/register", {
+                    const response = fetch("http://localhost:3000/users/register", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ username, password, userImage, adminLv })
@@ -56,6 +64,7 @@ const RegLog = () => {
                         setUsername(username = "")
                         setPassword(password = "")
                         history("/")
+                        handleReset();
                     }
                     // mensaje de usuario creado
                     setMessage(message = "Usuario creado con éxito. Prueba a iniciar sesión")
@@ -64,7 +73,8 @@ const RegLog = () => {
                     setMessage(message = "No se ha podido crear el usuario")
                 }
             }
-        }, (3000))
+        }, (1000))
+        
     }
 
     // Función para iniciar sesión, aún en producción
@@ -111,8 +121,8 @@ const RegLog = () => {
                     <div className="regLog-flex flex mt-28"><img className="regLog-Image" src="Galena.png" alt="Galena" title="Galena" /></div>
 
                     {/* Información proporcionada al usuario */}
-                    <div className="regLog-info regLog-flex flex mt-28">
-                        <p className="regLog-info-text mt-28">Una vez registrado, vuelve a introducir los datos seleccionando la opción "Iniciar sesión" (si no sucede nada es porque los datos se han colocado mal). La creación del usuario puede llevar un rato, un mensaje por pantalla te avisará de ello (a veces el mensaje se equivoca y no se crea el usuario).</p>
+                    <div className="regLog-info regLog-flex flex">
+                        <p className="regLog-info-text mt-12">Una vez registrado, vuelve a introducir los datos seleccionando la opción "Iniciar sesión" (si no sucede nada es porque el usuario no existel). La creación del usuario puede llevar un rato, un mensaje por pantalla te avisará de ello (a veces el mensaje se equivoca y no se crea el usuario)||(si al registrarse le sale el mensaje: "El nombre de usuario ya existe", reinicie la página e introduzca otro usuario, de lo contrariao siempre aparecerá dicho mensaje).</p>
                     </div>
 
                     <div className="regLog-flex regLog-averageFontSize flex mt-12">

@@ -28,12 +28,13 @@
 
 .regLog-info {
     text-align: center;
-    font-size: 2.8vw;
+    font-size: 8px;
     margin: auto 2vw auto 2vw;
+    width: 60vw;
 }
 
 .regLog-info-text {
-    border: 0.5px solid black;
+    border: 0.5px solid rgb(207, 207, 207);
 }
 
 .regLog-averageFontSize {
