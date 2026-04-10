@@ -6,7 +6,7 @@ import menu from "../images/menu.svg"
 import rainbow from "../images/rainbow.svg"
 
 const Home = () => {
-    // Hablamos del producto
+    // Hablamos del producto.
     let [name, setName] = useState("");
     // Variable importante para el funcionamiento de la página (el motivo de estar en mayúscula es otro, al igual de no tener nada quever el nombre con su función. Guarda la contraseña del usuario)
     let Desolation = localStorage.getItem("Desolation");
