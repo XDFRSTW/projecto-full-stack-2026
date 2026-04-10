@@ -4,8 +4,6 @@ const authMiddleware = require("../middlewares/auth");
 
 const userRouter = express.Router();
 
- console.log("router")
-
 // router para iniciar sesión
 userRouter.post("/login", userLogin);
 // router para registrarse
