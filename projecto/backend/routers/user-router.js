@@ -9,7 +9,7 @@ userRouter.post("/login", userLogin);
 // router para registrarse
 userRouter.post("/register", userRegister);
 // router para obtener los datos del usuario
-userRouter.get("/", getUser)
+userRouter.get("/", getUser, console.log("router"))
 // router para cambiar los datos del  usuario
 userRouter.put("/update/:id", updateUser)
 // router para eliminar usuario
