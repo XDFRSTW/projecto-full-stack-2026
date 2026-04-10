@@ -24,6 +24,7 @@ const RegLog = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         // http://localhost:3000/users
+        // 
 
         // Nos aseguramos antes de nada que el nombre de usuario no exista
         fetch("https://projecto-full-stack-2026-jn3d-fbej6vcc8.vercel.app/users")
@@ -41,6 +42,7 @@ const RegLog = () => {
             if (rejectRegister == false) {
                 
                 // http://localhost:3000/users/register
+                // 
 
                 try {
                     // await ha sido eliminado del fetch para que no se repitan los nombres de usuario (era la solución más simple que había podido encontrar)
