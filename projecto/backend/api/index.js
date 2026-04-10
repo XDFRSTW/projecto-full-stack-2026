@@ -7,14 +7,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 // Constantes de archivos del projecto
 // Router del usuario
-const userRouter = require("./routers/user-router");
+const userRouter = require("../routers/user-router");
 // Router del producto
-const productRouter = require("./routers/product-router");
+const productRouter = require("../routers/product-router");
 // Router del carrito
-const cartRouter = require("./routers/cart-router");
+const cartRouter = require("../routers/cart-router");
 // Control de errores
-const notFound = require ("./middlewares/404");
-const internalServerError = require ("./middlewares/500");
+const notFound = require ("../middlewares/404");
+const internalServerError = require ("../middlewares/500");
 // const authMiddleware = require("./middlewares/auth");
 
 dotenv.config();
