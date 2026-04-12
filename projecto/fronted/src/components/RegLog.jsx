@@ -81,17 +81,21 @@ const RegLog = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            // Conectandoa la base de datos
+            // Conectando la base de datos
             const response = await fetch("http://localhost:3000/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ username, password, userImage })
             });
             if (response.ok) {
                 fetch("http://localhost:3000/users")
                     .then((response) => response.json())
                     // Técnica peligrosísima para autentificar usuario.La contraseña solo está expuesta durante unos segundos
-                    .then((data) => data.map((dat, index) => { dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log("") }))
+                    .then((data) => data.map((dat, index) => {
+                        dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log(""),
+                        dat.username == username ? localStorage.setItem("User", dat.username) : console.log("")
+                    }))
+
                     .catch((error) => console.error("Error al obtener el mensaje", error));
 
                 const data = await response.json();
@@ -102,7 +106,7 @@ const RegLog = () => {
             }
         } catch (error) {
             console.error("Error al iniciar sesión", error);
-            setMessage(message = "No se hapodido iniciar sesión")
+            setMessage(message = "No se ha podido iniciar sesión")
         }
     }
 

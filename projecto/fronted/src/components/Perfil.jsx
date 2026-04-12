@@ -6,12 +6,19 @@ import menu from "../images/menu.svg"
 import rainbow from "../images/rainbow.svg"
 
 const Perfil = () => {
+    // Datos del usuario
+    let [userImage, setUserImage] = useState("");
+    let username = localStorage.getItem("User");
+    let user = localStorage.getItem("Id");
+
+
+
     // Hablamos del producto
 
     // Id usuario
-    let [userId, setUserId] = useState("");
+    let [userId, setUserId] = useState(user);
     // Nombre usuario
-    let [ownerName, setOwnerName] = useState("");
+    let [ownerName, setOwnerName] = useState(username);
     // Nombre producto
     let [name, setName] = useState("");
     // Descripción producto
@@ -27,6 +34,7 @@ const Perfil = () => {
 
 
 
+    // Los datos del usuario se obtienen mediante local storage
 
     // Este código necesita ejecutarse dos veces para funcionar
 
@@ -35,7 +43,7 @@ const Perfil = () => {
     function fetchFix() {
         fetch("http://localhost:3000/users")
             .then((response) => response.json())
-            .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(); }))
+            .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log, setUserImage(userImage = dat.userImage), console.log(userImage) }))
             .catch((error) => console.error("Error al obtener el usuario", error));
     }
     if (Desolation != "Not yet") {
@@ -48,15 +56,36 @@ const Perfil = () => {
                     },
                 })
                     .then((response) => response.json())
-                    .then((data) => localStorage.setItem("User", data[length].username), localStorage.setItem("Desolation", "Not yet"))
+                    .then((data) => localStorage.setItem("User", data[length].username))
                     .catch((error) => console.error("Error al obtener el usuario", error));
+                // , localStorage.setItem("Desolation", "Not yet")
             }
-            console.log(length)
         }, []);
     }
 
+    // Función para ver el panel que te permite borrar el perfil 
+
+    // Función asíncrona para borrar el perfil
+
+
     // Función para cambiar la foto de perfil del usuario
     const handleUserImage = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = fetch(`http://localhost:3000/users/update/${user}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userImage })
+            });
+            if (response.ok) {
+                history("/")
+            }
+        } catch (error) {
+            console.error("Error al registrar el usuario", error);
+        }
+
+
         console.log("En producción")
     }
 
@@ -76,15 +105,21 @@ const Perfil = () => {
             < header >
                 {/* Foto de perfil */}
                 < div >
-
+                    <img src={userImage} alt="Foto de perfil" />
                 </div >
                 {/* Datos del perfil y enlace a la foto */}
                 < div >
+                    <span>{username}</span>
+                    <form onSubmit={handleUserImage}>
+                        <input type="text" placeholder="*escribe" value={userImage} onChange={(e) => setUserImage(e.target.value)} />
+                        <button type="submit">Cambiar</button>
+
+                    </form>
 
                 </div >
                 {/* Eliminar perfil */}
                 < div >
-
+                    <span>Eliminar perfil</span>
                 </div >
                 {/* ¿seguro que quieres eliminar tu perfil? */}
                 < div >

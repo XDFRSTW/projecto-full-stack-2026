@@ -6,6 +6,8 @@ import menu from "../images/menu.svg"
 import rainbow from "../images/rainbow.svg"
 
 const Home = () => {
+    // Preparamos el local storage
+    localStorage.setItem("Image", "userImage")
     // Hablamos del producto.
     let [name, setName] = useState("");
     // Variable importante para el funcionamiento de la página (el motivo de estar en mayúscula es otro, al igual de no tener nada quever el nombre con su función. Guarda la contraseña del usuario)
@@ -33,10 +35,10 @@ const Home = () => {
                 })
                     // console.log(data.username))
                     .then((response) => response.json())
-                    .then((data) => localStorage.setItem("User", data[length]._id), localStorage.setItem("Desolation", "Not yet"))
+                    .then((data) => localStorage.setItem("Id", data[length]._id))
                     .catch((error) => console.error("Error al obtener el usuario", error));
+                    // , localStorage.setItem("Desolation", "Not yet")
             }
-            console.log(length)
         }, []);
     }
 
