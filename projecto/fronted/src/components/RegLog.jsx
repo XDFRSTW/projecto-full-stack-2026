@@ -65,16 +65,17 @@ const RegLog = () => {
                         setPassword(password = "")
                         history("/")
                         handleReset();
+                        // mensaje de usuario creado
+                        setMessage(message = "Usuario creado con éxito. Prueba a iniciar sesión")
                     }
-                    // mensaje de usuario creado
-                    setMessage(message = "Usuario creado con éxito. Prueba a iniciar sesión")
+
                 } catch (error) {
                     console.error("Error al registrar el usuario", error);
                     setMessage(message = "No se ha podido crear el usuario")
                 }
             }
         }, (1000))
-        
+
     }
 
     // Función para iniciar sesión, aún en producción
@@ -102,7 +103,7 @@ const RegLog = () => {
             }
         } catch (error) {
             console.error("Error al iniciar sesión", error);
-            setMessage(message = "Usuario creado con éxito. Prueba a iniciar sesión")
+            setMessage(message = "No se hapodido iniciar sesión")
         }
     }
 
