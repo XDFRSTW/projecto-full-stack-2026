@@ -37,7 +37,7 @@ const RegLog = () => {
         // Nos aseguramos antes de nada que el nombre de usuario no exista
         fetch("http://localhost:3000/users")
             .then((response) => response.json())
-            .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log("buscando usuarios...") }))
+            .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log("") }))
             .catch((error) => console.error("Error al obtener el mensaje", error));
 
         // Evitar que se creen usuarios con el mismo nombre
@@ -65,10 +65,9 @@ const RegLog = () => {
                         setPassword(password = "")
                         history("/")
                         handleReset();
-                        // mensaje de usuario creado
-                        setMessage(message = "Usuario creado con éxito. Prueba a iniciar sesión")
                     }
-
+                    // mensaje de usuario creado
+                    setMessage(message = "Usuario creado con éxito. Prueba a iniciar sesión")
                 } catch (error) {
                     console.error("Error al registrar el usuario", error);
                     setMessage(message = "No se ha podido crear el usuario")
@@ -92,7 +91,7 @@ const RegLog = () => {
                 fetch("http://localhost:3000/users")
                     .then((response) => response.json())
                     // Técnica peligrosísima para autentificar usuario.La contraseña solo está expuesta durante unos segundos
-                    .then((data) => data.map((dat, index) => { dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log("buscando usuario...") }))
+                    .then((data) => data.map((dat, index) => { dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log("") }))
                     .catch((error) => console.error("Error al obtener el mensaje", error));
 
                 const data = await response.json();
