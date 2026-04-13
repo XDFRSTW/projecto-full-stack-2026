@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+    background-color: rgb(201, 201, 201);
+}
+
 /* Css relacionado con la página de registrarse e iniciar sesión */
 .regLog-Image {
     width: 40vw;
@@ -64,4 +68,141 @@
 .regLog-regLog {
     margin: auto 2vw auto 2vw;
     background-color: transparent;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    transition: 1s;
+}
+
+/* Css relacionado con la página del perfil */
+
+.perfil-header {
+    margin-bottom: 4rem;
+    display: flex;
+}
+
+.perfil-image {
+    width: 40vw;
+    height: auto;
+    margin: 1rem;
+    position: relative;
+}
+
+.perfil-data {
+    position: relative;
+    left: 1rem;
+    top: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.perfil-username {
+    text-decoration: underline rgb(243, 243, 243);
+}
+
+.perfil-imageForm {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 6rem;
+}
+
+.input {
+    background-color: rgb(238, 238, 238);
+    border: 1px solid black;
+    margin-right: 0.75rem;
+}
+
+.perfil-imageFix {
+    position: relative;
+}
+
+.perfil-delete {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+}
+
+.perfil-deletePanel {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    inset: 25%;
+}
+
+.invisible {
+    width: 0px;
+    opacity: 0%;
+}
+
+.perfil-fontSize {
+    font-size: 2.8vw;
+}
+
+.perfil-showPanel {
+    color: rgb(43, 255, 0);
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.perfil-marginRight {
+    margin: 1rem;
+}
+
+.perfil-deleteText {
+    background-color: rgba(255, 255, 255, 0.192);
+}
+
+/* Main del perfil */
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vw;
+}
+
+.perfil-volver {
+    font-size: 2.8vw;
+    position: relative;
+    right: 550%;
+    bottom: 100%;
+}
+
+.perfil-form {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    background-color: rgb(255, 251, 238);
+    border: 1px solid black;
+    width: 75%;
+}
+
+.perfil-formBoxes {
+    margin: 0.5rem;
+}
+
+.perfil-formButton {
+    border: 1px solid black;
+    font-size: 1rem;
+}
+
+.perfil-formTitle {
+    font-size: 10vw;
+    text-decoration: underline;
+    margin-bottom: 8rem;
+}
+
+.label {
+    margin-right: 0.5rem;
+    text-decoration: underline;
 }

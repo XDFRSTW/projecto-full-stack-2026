@@ -131,8 +131,8 @@ const RegLog = () => {
 
                     <div className="regLog-flex regLog-averageFontSize flex mt-12">
                         {/* Botones para intercalar la funcionalidad del formulario */}
-                        <button className={regLog == true ? ("regLog-mark") : ("regLog-regLog")} onClick={() => setAction(regLog = true)}>Registrarse</button>
-                        <button className={regLog == false ? ("regLog-mark") : ("regLog-regLog")} onClick={() => setAction(regLog = false)}>Iniciar sesión</button>
+                        <button className={regLog == true ? ("regLog-mark button") : ("regLog-regLog button")} onClick={() => setAction(regLog = true)}>Registrarse</button>
+                        <button className={regLog == false ? ("regLog-mark button") : ("regLog-regLog button")} onClick={() => setAction(regLog = false)}>Iniciar sesión</button>
                     </div>
 
                     <div className="regLog-averageFontSize flex mt-24">
@@ -149,7 +149,7 @@ const RegLog = () => {
                                 required id="pin" onChange={(e) => setPassword(e.target.value)} />
 
                             {/* Botón para subir datos */}
-                            <button type="submit">Enviar</button>
+                            <button className="button" type="submit">Enviar</button>
 
                         </form>
                     </div>
