@@ -28,7 +28,8 @@ app.get('/', (_req, res) => {
   res.send('Funciona')
 })
 
-app.use(cors());
+// No entiendo para que no voy a permitir que otras webs puedan hacer fetch gratuitamente a mi página
+// app.use(cors());
 app.use(express.json());
 //Conectandoa mongoo
 mongoose.connect(MONGO_UNI)
