@@ -35,7 +35,7 @@ const RegLog = () => {
         // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users
 
         // Nos aseguramos antes de nada que el nombre de usuario no exista
-        fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users")
+        fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users", {headers: { "Content-Type": "application/json" }})
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log("") }))
             .catch((error) => console.error("Error al obtener el mensaje", error));
@@ -81,19 +81,25 @@ const RegLog = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
+            // http://localhost:3000/users/login
+            // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users/login
+
             // Conectando la base de datos
-            const response = await fetch("http://localhost:3000/users/login", {
+            const response = await fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password, userImage })
             });
             if (response.ok) {
+                // http://localhost:3000/users
+                // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users
+
                 fetch("http://localhost:3000/users")
                     .then((response) => response.json())
                     // Técnica peligrosísima para autentificar usuario.La contraseña solo está expuesta durante unos segundos
                     .then((data) => data.map((dat, index) => {
                         dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log(""),
-                        dat.username == username ? localStorage.setItem("User", dat.username) : console.log("")
+                            dat.username == username ? localStorage.setItem("User", dat.username) : console.log("")
                     }))
 
                     .catch((error) => console.error("Error al obtener el mensaje", error));
