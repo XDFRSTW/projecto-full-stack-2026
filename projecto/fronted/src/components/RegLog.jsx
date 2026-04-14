@@ -35,7 +35,7 @@ const RegLog = () => {
         // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users
 
         // Nos aseguramos antes de nada que el nombre de usuario no exista
-        fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users", {headers: { "Content-Type": "application/json" }})
+        fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users", { method: "GET" ,headers: { "Content-Type": "application/json" }})
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log("") }))
             .catch((error) => console.error("Error al obtener el mensaje", error));
