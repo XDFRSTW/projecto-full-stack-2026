@@ -7,6 +7,8 @@ import Home from './components/Homes';
 // Página de iniciar sesión o registrarse
 import RegLog from './components/RegLog';
 import Perfil from './components/Perfil';
+import Productos from './components/Productos';
+import Editar from './components/Editar';
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<RegLog />} />
           <Route path="/perfil" element={<Perfil />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/editar" element={<Editar />} />
         </Routes>
       </Router>
     </>

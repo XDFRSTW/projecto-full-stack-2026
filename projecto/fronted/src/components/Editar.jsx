@@ -5,7 +5,7 @@ import lupa from "../images/lupa.svg"
 import menu from "../images/menu.svg"
 import rainbow from "../images/rainbow.svg"
 
-const Perfil = () => {
+const Editar = () => {
     // Respecto a eliminar el usuario
 
     let [panel, setPanel] = useState(false);
@@ -172,6 +172,7 @@ const Perfil = () => {
 
     return (
         <>
+        esta es la página para editar un producto
             {/* Encabezado */}
             < header className="perfil-header bg-gray-100/60">
                 {/* Foto de perfil */}
@@ -207,9 +208,9 @@ const Perfil = () => {
 
             {/* Contenido "principal" */}
             < main className="main">
-                <div><a className="button perfil-volver" href="/Home" title="volver">Volver</a></div>
+                <div><a className="button perfil-volver" href="/productos" title="volver">Volver</a></div>
                 {/* Título del formulario (afuera de este para que no le afecte la propiedad flex) */}
-                <h2 className="perfil-formTitle">Crear nuevo producto</h2>
+                <h2 className="perfil-formTitle">Crear nuevo projecto</h2>
                 {/* Formulario para crear un producto */}
                 <form className="perfil-form" onSubmit={handleCreateProduct}>
                     {/* Datos del producto */}
@@ -266,4 +267,4 @@ const Perfil = () => {
     )
 }
 
-export default Perfil
+export default Editar

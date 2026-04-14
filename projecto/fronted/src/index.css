@@ -206,3 +206,67 @@ body {
     margin-right: 0.5rem;
     text-decoration: underline;
 }
+
+/* Css compartido para algunas de las páginas */
+
+.averageHeader{
+    color: white;
+    font-size: 8vw;
+    justify-content: center;
+    border: 3px solid white;
+}
+
+.averageVolver{
+    font-size: 2.8vw;
+    position: relative;
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
+.averageMargin{
+    margin-bottom: 2rem;
+}
+
+.averageButton{
+    cursor: pointer;
+}
+
+.averageIcon{
+    width: 1.75rem;
+}
+
+/* Css de las cajetillas de los productos */
+
+.productsBox{
+    border: 1px solid rgb(190, 190, 190);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.productBox{
+    width: 16rem;
+    /* height: 20rem; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    word-break: break-all;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid black;
+}
+
+.buttonRight{
+    margin: auto auto auto 75%;
+}
+
+.data{
+   margin: 1rem auto 1rem 0px;
+   text-decoration: underline;
+}
+
+.buttonsBox{
+    height: 2rem;
+    position: relative;
+}

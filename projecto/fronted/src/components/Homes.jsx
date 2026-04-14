@@ -60,7 +60,7 @@ const Home = () => {
                 {/* Menú que se muestra al pulsar el botón */}
                 <div>
                     <a href="/Perfil">Mi perfil</a>
-                    <a href="/">Mis productos</a>
+                    <a href="/Productos">Mis productos</a>
                     <a href="/">Mi carrito</a>
                 </div>
 
