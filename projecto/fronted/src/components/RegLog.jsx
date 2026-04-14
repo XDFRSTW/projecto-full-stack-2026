@@ -32,10 +32,10 @@ const RegLog = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         // http://localhost:3000/users
-        // https://projecto-full-stack-2026-jn3d-fbej6vcc8.vercel.app/users
+        // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users
 
         // Nos aseguramos antes de nada que el nombre de usuario no exista
-        fetch("http://localhost:3000/users")
+        fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log("") }))
             .catch((error) => console.error("Error al obtener el mensaje", error));
@@ -49,12 +49,12 @@ const RegLog = () => {
         setTimeout(() => {
             if (rejectRegister == false) {
 
-                // 
-                // https://projecto-full-stack-2026-jn3d-fbej6vcc8.vercel.app/users/register
+                // http://localhost:3000/users/register
+                // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users/register
 
                 try {
                     // await ha sido eliminado del fetch para que no se repitan los nombres de usuario (era la solución más simple que había podido encontrar)
-                    const response = fetch("http://localhost:3000/users/register", {
+                    const response = fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users/register", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ username, password, userImage, adminLv })
