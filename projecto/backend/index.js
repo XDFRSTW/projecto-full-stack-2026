@@ -2,15 +2,6 @@
 require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 // Constantes de los módulos instalados
 const cors = require("cors");
-const corsOptions = {
-    statusCode: 200,
-    headers: {
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Origin": "https://projecto-full-stack-2026-woad.vercel.app/",
-        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,DELETE,PUT"
-    },
-    body: JSON.stringify('Connected'),
-};
 const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -38,7 +29,7 @@ app.get('/', (_req, res) => {
 })
 
 
-app.use(cors(corsOptions));
+app.use(cors({ origin: "https://projecto-full-stack-2026-woad.vercel.app", methods: ["GET","POST","PUT","DELETE"]}));
 app.use(express.json());
 //Conectandoa mongoo
 mongoose.connect(MONGO_UNI)
