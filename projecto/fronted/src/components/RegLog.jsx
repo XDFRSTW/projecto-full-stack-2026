@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import '../index.css'
 
+// Resumen de vercel : los servidores a veces van mal, otras van bien
+
 const RegLog = () => {
     // Alternamos mediante un botón si queremos registrarnos o iniciar sesión
     let [regLog, setAction] = useState(true);
@@ -35,7 +37,7 @@ const RegLog = () => {
         // https://projecto-full-stack-2026-jn3d.vercel.app/users
 
         // Nos aseguramos antes de nada que el nombre de usuario no exista
-        fetch("https://projecto-full-stack-2026-jn3d.vercel.app/users")
+        fetch("https://produccion-livid.vercel.app/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log("") }))
             .catch((error) => console.error("Error al obtener el mensaje", error));
@@ -54,7 +56,7 @@ const RegLog = () => {
 
                 try {
                     // await ha sido eliminado del fetch para que no se repitan los nombres de usuario (era la solución más simple que había podido encontrar)
-                    const response = fetch("https://projecto-full-stack-2026-jn3d.vercel.app/users/register", {
+                    const response = fetch("https://produccion-livid.vercel.app/users/register", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ username, password, userImage, adminLv })
@@ -85,7 +87,7 @@ const RegLog = () => {
             // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users/login
 
             // Conectando la base de datos
-            const response = await fetch("https://projecto-full-stack-2026-jn3d.vercel.app/users/login", {
+            const response = await fetch("https://produccion-livid.vercel.app/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password, userImage })
@@ -94,13 +96,13 @@ const RegLog = () => {
                 // http://localhost:3000/users
                 // https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users
 
-                fetch("https://projecto-full-stack-2026-jn3d.vercel.app/users")
+                fetch("https://produccion-livid.vercel.app/users")
                     .then((response) => response.json())
                     // Técnica peligrosísima para autentificar usuario.La contraseña solo está expuesta durante unos segundos
                     .then((data) => data.map((dat, index) => {
                         dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log(),
                         dat.username == username ? localStorage.setItem("User", dat.username) : console.log(),
-                        dat.username == username ? localStorage.setItem("admin", dat.setAdminLv) : console.log()
+                        dat.username == username ? localStorage.setItem("admin", dat.adminLv) : console.log()
                     }))
 
                     .catch((error) => console.error("Error al obtener el mensaje", error));

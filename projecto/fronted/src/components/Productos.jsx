@@ -50,17 +50,17 @@ const Productos = () => {
     let Desolation = localStorage.getItem("Desolation");
     let length = 0;
     function fetchFix() {
-        fetch("http://localhost:3000/users")
+        fetch("https://produccion-livid.vercel.app/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(), dat.password == Desolation ? setUserImage(userImage = dat.userImage) : console.log() }))
             .catch((error) => console.error("Error al obtener el usuario", error));
     }
-    // Debería usarse useEffect para ejecutar esta porción de código. No lo use porque no es necesario
+    // Debería usarse useEffect para ejecutar esta porción de código. No lo use porque no es necesario (alparecer si que lo acabé usando)
     if (Desolation != "Not yet") {
         useEffect(() => {
             fetchFix()
             if (Desolation) {
-                fetch("http://localhost:3000/users", {
+                fetch("https://produccion-livid.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -69,7 +69,7 @@ const Productos = () => {
                     .then((data) => localStorage.setItem("User", data[length].username))
                     .catch((error) => console.error("Error al obtener el usuario", error));
                 // , localStorage.setItem("Desolation", "Not yet")
-                fetch("http://localhost:3000/users", {
+                fetch("https://produccion-livid.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -86,7 +86,7 @@ const Productos = () => {
     // Para que se muestren solo los productos del usuario
 
     useEffect(() => {
-        fetch("http://localhost:3000/products")
+        fetch("https://produccion-livid.vercel.app/products")
             .then((response) => response.json())
             .then((data) => setList(list = data.filter((dat) => dat.userId == user)))
             .catch((error) => console.error("Error al obtener el usuario", error));
@@ -96,7 +96,7 @@ const Productos = () => {
 
     useEffect(() => {
         try {
-            const response = fetch(`http://localhost:3000/products/delete/${productDelete}`, {
+            const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" }
             });

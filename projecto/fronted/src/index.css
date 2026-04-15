@@ -270,3 +270,12 @@ body {
     height: 2rem;
     position: relative;
 }
+
+/* Css para la página de editar productos */
+
+.editar-volver{
+    font-size: 2.8vw;
+    position: relative;
+    /* El porcentaje debe ser así de elevado para que se posicione en donde quiero */
+    right: 575%;
+}

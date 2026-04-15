@@ -52,7 +52,7 @@ const Perfil = () => {
     let Desolation = localStorage.getItem("Desolation");
     let length = 0;
     function fetchFix() {
-        fetch("http://localhost:3000/users")
+        fetch("https://produccion-livid.vercel.app/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(), dat.password == Desolation ? setUserImage(userImage = dat.userImage) : console.log() }))
             .catch((error) => console.error("Error al obtener el usuario", error));
@@ -62,7 +62,7 @@ const Perfil = () => {
         useEffect(() => {
             fetchFix()
             if (Desolation) {
-                fetch("http://localhost:3000/users", {
+                fetch("https://produccion-livid.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -71,7 +71,7 @@ const Perfil = () => {
                     .then((data) => localStorage.setItem("User", data[length].username))
                     .catch((error) => console.error("Error al obtener el usuario", error));
                 // , localStorage.setItem("Desolation", "Not yet")
-                fetch("http://localhost:3000/users", {
+                fetch("https://produccion-livid.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },
@@ -94,7 +94,7 @@ const Perfil = () => {
         e.preventDefault();
 
         try {
-            const response = fetch(`http://localhost:3000/users/update/${user}`, {
+            const response = fetch(`https://produccion-livid.vercel.app/users/update/${user}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userImage })
@@ -120,7 +120,7 @@ const Perfil = () => {
         e.preventDefault();
         try {
 
-            const response = fetch("http://localhost:3000/products/create", {
+            const response = fetch("https://produccion-livid.vercel.app/products/create", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ userId, ownerName, name, desrc, image, price, localization, contact })
@@ -146,7 +146,7 @@ const Perfil = () => {
         e.preventDefault();
 
         try {
-            const response = fetch(`http://localhost:3000/users/delete/${user}`, {
+            const response = fetch(`https://produccion-livid.vercel.app/users/delete/${user}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" }
             });

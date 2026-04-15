@@ -18,7 +18,7 @@ const Home = () => {
     let length = 0;
     // Buscamos el espacio del array en el que se encuentra el usuario
     function fetchFix() {
-        fetch("http://localhost:3000/users")
+        fetch("https://produccion-livid.vercel.app/users")
             .then((response) => response.json())
             .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(); }))
             .catch((error) => console.error("Error al obtener el usuario", error));
@@ -28,7 +28,7 @@ const Home = () => {
         useEffect(() => {
             fetchFix()
             if (Desolation) {
-                fetch("http://localhost:3000/users", {
+                fetch("https://produccion-livid.vercel.app/users", {
                     headers: {
                         Authorization: `Bearer ${Desolation}`,
                     },

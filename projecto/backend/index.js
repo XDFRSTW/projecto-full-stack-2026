@@ -29,7 +29,7 @@ app.get('/', (_req, res) => {
 })
 
 
-app.use(cors({origin: "*", allowedHeaders: "*", methods: "*"}));
+app.use(cors({origin: "*", allowedHeaders: "*", methods: ["PUT", "GET", "POST", "DELETE"]}));
 app.use(express.json());
 //Conectandoa mongoo
 mongoose.connect(MONGO_UNI)
