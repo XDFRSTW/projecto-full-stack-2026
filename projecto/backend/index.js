@@ -3,8 +3,13 @@ require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 // Constantes de los módulos instalados
 const cors = require("cors");
 const corsOptions = {
-    origin: "https://projecto-full-stack-2026-woad.vercel.app",
-    methods: "GET, POST, PUT, DELETE"
+    statusCode: 200,
+    headers: {
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Origin": "https://projecto-full-stack-2026-woad.vercel.app/",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,DELETE,PUT"
+    },
+    body: JSON.stringify('Connected'),
 };
 const dotenv = require("dotenv");
 const express = require("express");
@@ -17,8 +22,8 @@ const productRouter = require("./routers/product-router");
 // Router del carrito
 const cartRouter = require("./routers/cart-router");
 // Control de errores
-const notFound = require ("./middlewares/404");
-const internalServerError = require ("./middlewares/500");
+const notFound = require("./middlewares/404");
+const internalServerError = require("./middlewares/500");
 // const authMiddleware = require("./middlewares/auth");
 
 dotenv.config();
@@ -29,7 +34,7 @@ const PORT = process.env.PORT || 3000;
 const MONGO_UNI = process.env.MONGO_UNI;
 
 app.get('/', (_req, res) => {
-  res.send('Funciona')
+    res.send('Funciona')
 })
 
 
