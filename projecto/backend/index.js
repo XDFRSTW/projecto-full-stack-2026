@@ -29,7 +29,7 @@ app.get('/', (_req, res) => {
 })
 
 
-app.use(cors({"origin" : "https://projecto-full-stack-2026-woad.vercel.app/"}));
+app.use(cors({origin: "*", allowedHeaders: "*", methods: "*"}));
 app.use(express.json());
 //Conectandoa mongoo
 mongoose.connect(MONGO_UNI)
