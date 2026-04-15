@@ -54,7 +54,7 @@ const RegLog = () => {
 
                 try {
                     // await ha sido eliminado del fetch para que no se repitan los nombres de usuario (era la solución más simple que había podido encontrar)
-                    const response = fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users/register", {
+                    const response = fetch("https://projecto-full-stack-2026-jn3d-j715ok8fw.vercel.app/users/register/", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ username, password, userImage, adminLv })
@@ -98,8 +98,9 @@ const RegLog = () => {
                     .then((response) => response.json())
                     // Técnica peligrosísima para autentificar usuario.La contraseña solo está expuesta durante unos segundos
                     .then((data) => data.map((dat, index) => {
-                        dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log(""),
-                            dat.username == username ? localStorage.setItem("User", dat.username) : console.log("")
+                        dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log(),
+                        dat.username == username ? localStorage.setItem("User", dat.username) : console.log(),
+                        dat.username == username ? localStorage.setItem("admin", dat.setAdminLv) : console.log()
                     }))
 
                     .catch((error) => console.error("Error al obtener el mensaje", error));
