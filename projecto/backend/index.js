@@ -29,7 +29,7 @@ app.get('/', (_req, res) => {
 })
 
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 //Conectandoa mongoo
 mongoose.connect(MONGO_UNI)
