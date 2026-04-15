@@ -2,6 +2,10 @@
 require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
 // Constantes de los módulos instalados
 const cors = require("cors");
+const corsOptions = {
+    origin: "https://projecto-full-stack-2026-woad.vercel.app",
+    methods: "GET, POST, PUT, DELETE"
+};
 const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -29,7 +33,7 @@ app.get('/', (_req, res) => {
 })
 
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 //Conectandoa mongoo
 mongoose.connect(MONGO_UNI)
