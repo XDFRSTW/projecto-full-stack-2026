@@ -9,7 +9,7 @@ const Productos = () => {
     // Respecto a eliminar producto
 
     let [productId, setProductId] = useState("");
-    let [productDelete, setProductDelete] = useState("");
+    let [productDelete, setProductDelete] = useState("no");
 
     // Datos del usuario
     let [userImage, setUserImage] = useState("");
@@ -92,9 +92,30 @@ const Productos = () => {
             .catch((error) => console.error("Error al obtener el usuario", error));
     }, [])
 
+    // setList(list = data.filter((dat) => dat.userId == user))
+
     // Función para el botón de eliminar producto (Da error en consola, pero de todas formas funciona)
 
     useEffect(() => {
+        if (productDelete =! "no") {
+            try {
+                const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" }
+                });
+                if (response.ok) {
+                    history("/")
+                }
+            } catch (error) {
+                console.error("No se ha podido eliminar el producto", error);
+            }
+            navigate("/Productos")
+        }
+    }, [productDelete])
+
+
+
+    function handleDelete() {
         try {
             const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
                 method: "DELETE",
@@ -107,7 +128,7 @@ const Productos = () => {
             console.error("No se ha podido eliminar el producto", error);
         }
         navigate("/Productos")
-    }, [productDelete])
+    }
 
     // Función para editar el producto
 
@@ -129,7 +150,6 @@ const Productos = () => {
                 <div className="bg-gray-300 productsBox">
                     {/* No hay problema por usar index como llave en este caso debido a que la lista no puede ser modificada en esta página, lo cual impide problemas con las listas */}
                     {list.map((cont, index) => (
-
                         <div className="productBox" key={index}>
                             <div>
                                 <span>{cont.name} : </span>
@@ -137,7 +157,7 @@ const Productos = () => {
                             </div>
                             <div>
                                 <img className="border border-gray-900" src={cont.image} alt="imagen" />
-                                <p className="border border-gray-900">{cont.desrc}</p>
+                                <p className="border border-gray-900 p-2">{cont.desrc}</p>
                             </div>
                             <div className="data">
                                 <span>{cont.ownerName}; </span>

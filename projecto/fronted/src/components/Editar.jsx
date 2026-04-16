@@ -110,7 +110,7 @@ const Editar = () => {
                             </div>
                             <div>
                                 <img className="border border-gray-900" src={image} alt="imagen" />
-                                <p className="border border-gray-900">{desrc}</p>
+                                <p className="border border-gray-900 p-2">{desrc}</p>
                             </div>
                             <div className="data">
                                 <span>{ownerName}; </span>

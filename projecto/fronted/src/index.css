@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/* No todos los estilos css se encuentran en uso, muchos borradores */
+
 body {
     background-color: rgb(201, 201, 201);
 }
@@ -164,7 +166,7 @@ body {
 
 /* Main del perfil */
 
-.main{
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,42 +211,47 @@ body {
 
 /* Css compartido para algunas de las páginas */
 
-.averageHeader{
+.averageHeader {
     color: white;
     font-size: 8vw;
     justify-content: center;
     border: 3px solid white;
 }
 
-.averageVolver{
+.averageTitle {
+    color: white;
+    font-size: 8vw;
+}
+
+.averageVolver {
     font-size: 2.8vw;
     position: relative;
     left: 0.5rem;
     top: 0.5rem;
 }
 
-.averageMargin{
+.averageMargin {
     margin-bottom: 2rem;
 }
 
-.averageButton{
+.averageButton {
     cursor: pointer;
 }
 
-.averageIcon{
+.averageIcon {
     width: 1.75rem;
 }
 
 /* Css de las cajetillas de los productos */
 
-.productsBox{
+.productsBox {
     border: 1px solid rgb(190, 190, 190);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.productBox{
+.productBox {
     width: 16rem;
     /* height: 20rem; */
     display: flex;
@@ -257,25 +264,101 @@ body {
     border: 1px solid black;
 }
 
-.buttonRight{
+.buttonRight {
     margin: auto auto auto 75%;
 }
 
-.data{
-   margin: 1rem auto 1rem 0px;
-   text-decoration: underline;
+.data {
+    margin: 1rem auto 1rem 0px;
+    text-decoration: underline;
 }
 
-.buttonsBox{
+.buttonsBox {
     height: 2rem;
     position: relative;
 }
 
 /* Css para la página de editar productos */
 
-.editar-volver{
+.editar-volver {
     font-size: 2.8vw;
     position: relative;
     /* El porcentaje debe ser así de elevado para que se posicione en donde quiero */
     right: 575%;
 }
+
+/* Css dela página "home" (o al menos se hizo inicialmente para este) */
+
+.home-header {
+    justify-content: center;
+    border: 3px solid white;
+    height: 18vw;
+}
+
+.home-left {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
+.home-right {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+}
+
+.home-title {
+    color: white;
+    font-size: 8vw;
+    display: flex;
+    align-self: center;
+}
+
+.home-icons{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgb(64, 64, 64);
+    background-color: rgb(233, 232, 232);
+    cursor: pointer;
+}
+
+.home-iconsLupa{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgb(64, 64, 64);
+    background-color: rgb(233, 232, 232);
+    cursor: pointer;
+    position: relative;
+    top: 0.8rem;
+    left: 0.8rem;
+    margin-right: 2rem;
+}
+
+.home-panel {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    left: 0.5rem;
+    top: 3rem;
+    height: 12remh;
+    width: 8rem;
+    align-items: center;
+}
+
+.home-routes{
+    margin: 1rem auto 1rem auto;
+}
+
+/* Este css aplica una línea a modo de subrrayado */
+.line{
+    border-bottom: 1px solid gray;
+    /* Para que lalínea se vea bien bella */
+    height: 4rem;
+}
+
+/* Css del carrito */
+
+/* Css para aplicarle otro estilo a las cajetillas del producto */
+
+/* Css del panel de administrador */

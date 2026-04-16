@@ -102,7 +102,8 @@ const RegLog = () => {
                     .then((data) => data.map((dat, index) => {
                         dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log(),
                         dat.username == username ? localStorage.setItem("User", dat.username) : console.log(),
-                        dat.username == username ? localStorage.setItem("admin", dat.adminLv) : console.log()
+                        dat.username == username ? localStorage.setItem("admin", dat.adminLv) : console.log(),
+                        dat.username == username ? localStorage.setItem("search", "") : console.log("")
                     }))
 
                     .catch((error) => console.error("Error al obtener el mensaje", error));
@@ -110,7 +111,7 @@ const RegLog = () => {
                 const data = await response.json();
                 // Esto que puedes apreciar está puesto como comentario porque no hacía más que darme errores, por lo que he tenidoque optar por otros métodos para autentificar los usuarios
                 // localStorage.setItem("token", data.token);
-                navigate("/home");
+                navigate("/charging");
                 // data.token
             }
         } catch (error) {
