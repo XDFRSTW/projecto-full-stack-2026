@@ -5,6 +5,11 @@ import '../index.css'
 // Resumen de vercel : los servidores a veces van mal, otras van bien
 
 const RegLog = () => {
+    // Evitar problemas de duplicadode usuario
+        localStorage.removeItem("User");
+        localStorage.removeItem("Image");
+        localStorage.removeItem("Desolation");
+        localStorage.removeItem("Id");
     // Alternamos mediante un botón si queremos registrarnos o iniciar sesión
     let [regLog, setAction] = useState(true);
     // Los datos de los usuarios
@@ -12,6 +17,10 @@ const RegLog = () => {
     let [password, setPassword] = useState("");
     let [userImage, setUserImage] = useState("https://i.pinimg.com/originals/9d/7c/74/9d7c745207ba381b7bc4d41912ef4196.jpg?nii=t");
     let [adminLv, setAdminLv] = useState("averageUser");
+    // Niveles de administrador
+    // averageUser
+    // webAdminUser
+    // laRuga
     // constante importada
     const history = useNavigate();
     const navigate = useNavigate();
@@ -39,7 +48,7 @@ const RegLog = () => {
         // Nos aseguramos antes de nada que el nombre de usuario no exista
         fetch("https://produccion-livid.vercel.app/users")
             .then((response) => response.json())
-            .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log("") }))
+            .then((data) => data.map((dat, index) => { dat.username == username ? setReject(rejectRegister = true) : console.log() }))
             .catch((error) => console.error("Error al obtener el mensaje", error));
 
         // Evitar que se creen usuarios con el mismo nombre
@@ -103,7 +112,7 @@ const RegLog = () => {
                         dat.username == username ? localStorage.setItem("Desolation", dat.password) : console.log(),
                         dat.username == username ? localStorage.setItem("User", dat.username) : console.log(),
                         dat.username == username ? localStorage.setItem("admin", dat.adminLv) : console.log(),
-                        dat.username == username ? localStorage.setItem("search", "") : console.log("")
+                        dat.username == username ? localStorage.setItem("search", "") : console.log()
                     }))
 
                     .catch((error) => console.error("Error al obtener el mensaje", error));

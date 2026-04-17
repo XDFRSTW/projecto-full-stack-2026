@@ -4,11 +4,12 @@ import '../index.css'
 import lupa from "../images/lupa.svg"
 import menu from "../images/menu.svg"
 import rainbow from "../images/rainbow.svg"
+import trash from "../images/trash.svg"
 
 // Comentario : a veces la página se rompe por completo y no funciona. Se arregla esperando un rato
 
 const Editar = () => {
-    // Id del producto y para coger los datosde este
+    // Id del producto y para coger los datos de este
     let product = localStorage.getItem("product")
     let [productData, setProductData] = useState("")
 
@@ -52,7 +53,7 @@ const Editar = () => {
     useEffect(() => {
         fetch("https://produccion-livid.vercel.app/products")
             .then((response) => response.json())
-            .then((data) => data.map((dat, index) => { dat._id == product ? setProductData(productData = dat) : console.log("no") }))
+            .then((data) => data.map((dat, index) => { dat._id == product ? setProductData(productData = dat) : console.log() }))
             .catch((error) => console.error("Error al obtener el usuario", error));
         // Lo que continúa despues de hacer fetch
         setTimeout(() => {
@@ -86,6 +87,24 @@ const Editar = () => {
         }
 
     }
+    // Eliminar el producto 
+    const handleEliminateProduct = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = fetch(`https://produccion-livid.vercel.app/products/delete/${product}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" }
+            });
+            if (response.ok) {
+                history("/")
+            }
+        } catch (error) {
+            console.error("No se ha podido eliminar el producto", error);
+        }
+        navigate("/home")
+    }
+
 
     return (
         <>
@@ -102,7 +121,7 @@ const Editar = () => {
                 <div className="main">
                     {/* Contenedor del producto a editar */}
                     {/* Reutilizando clases (por eso prefiero usar css directamente antes que tailwind) */}
-                    <div className="bg-gray-300 productsBox">
+                    <div className="bg-gray-300">
                         <div className="productBox">
                             <div>
                                 <span>{name} : </span>
@@ -117,11 +136,15 @@ const Editar = () => {
                                 <span> {contact}; </span>
                                 <span> {localization}</span>
                             </div>
+                            <div className="buttonsBox">
+                                <button className="averageButton averageIcon buttonRight editar-buttonFix" onClick={handleEliminateProduct}>
+                                    <img src={trash} alt="eliminar" title="eliminar el producto" /></button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {/* Editar el producto que visualizas en pantalla */}
-                < div className="main">
+                < div className="main mt-64">
                     {/* Título del formulario (afuera de este para que no le afecte la propiedad flex) */}
                     <h2 className="perfil-formTitle border-t border-black-900">Editar producto</h2>
                     {/* Formulario para crear un producto */}

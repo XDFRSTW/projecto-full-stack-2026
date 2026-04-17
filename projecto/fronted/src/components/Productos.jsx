@@ -166,7 +166,6 @@ const Productos = () => {
                             </div>
                             <div className="buttonsBox">
                                 <button className="averageButton averageIcon" onClick={() => setProductId(productId = cont._id)}><a href="/editar"><img src={pencil} alt="editar" title="editar el producto" /></a></button>
-                                <button className="averageButton averageIcon buttonRight" onClick={() => setProductDelete(productDelete = cont._id)}><img src={trash} alt="eliminar" title="eliminar el producto" /></button>
                             </div>
                         </div>
                     ))}

@@ -166,6 +166,7 @@ const Perfil = () => {
         localStorage.removeItem("Image");
         localStorage.removeItem("Desolation");
         localStorage.removeItem("Id");
+        localStorage.removeItem("admin");
         navigate("/")
     }
 

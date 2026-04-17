@@ -11,6 +11,7 @@ import Productos from './components/Productos';
 import Editar from './components/Editar';
 import Carrito from './components/Carrito';
 import PassPage from './components/PassPage';
+import Admin from './components/Admin';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/editar" element={<Editar />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/charging" element={<PassPage />} />
+          <Route path='admin' element={<Admin />} />
         </Routes>
       </Router>
     </>

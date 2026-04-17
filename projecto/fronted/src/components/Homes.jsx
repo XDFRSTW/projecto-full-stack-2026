@@ -6,8 +6,11 @@ import menu from "../images/menu.svg"
 import rainbow from "../images/rainbow.svg"
 import galaxia from "../images/galaxia.png"
 import cart from "../images/cart.svg"
+import trash from "../images/trash.svg"
 
 const Home = () => {
+    // Eliminar producto
+    let [idToEliminate, setIdToEliminate] = useState("");
     // Por si acaso
 
     const history = useNavigate();
@@ -25,11 +28,12 @@ const Home = () => {
     // let [rainbowMode, setRainbowMode] = useState(false);   Adios al modo arcoiris
 
 
-    // El buscador de productos (filtro, aunque use filtro para todo) y el carrito
+    // El buscador de productos (filtro, aunque use filtro para todo), el carrito y datos del usuario
 
     let [search, setSearch] = useState(localStorage.getItem("search"));
     let [carts, setCarts] = useState("");
     let userId = localStorage.getItem("Id");
+    let adminLv = localStorage.getItem("admin")
 
     // Preparamos el local storage
     localStorage.setItem("Image", "userImage")
@@ -98,13 +102,13 @@ const Home = () => {
                 .then((response) => response.json())
                 // No se lo que he hecho con este código, pero si funciona, no se toca
                 .then((data) => setList(list = data.filter((dat) => dat)))
-                .catch((error) => console.error("Error al obtener el usuario", error));
+                .catch((error) => console.error("Error al obtener el producto", error));
         }
         else {
             fetch("https://produccion-livid.vercel.app/products")
                 .then((response) => response.json())
                 .then((data) => setList(list = data.filter((dat) => dat.name == search)))
-                .catch((error) => console.error("Error al obtener el usuario", error));
+                .catch((error) => console.error("Error al obtener el producto", error));
         }
     }, []);
 
@@ -114,9 +118,8 @@ const Home = () => {
 
     // Añadir objeto al carrito
     async function handleAddToCart(id) {
-       let productId = id;
+        let productId = id;
         try {
-
             const response = fetch("https://produccion-livid.vercel.app/carts/add", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -129,6 +132,26 @@ const Home = () => {
             console.error("Error al crear el producto", error);
         }
     }
+
+    // Eliminar productos
+
+    const handleEliminateProduct = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = fetch(`https://produccion-livid.vercel.app/products/delete/${idToEliminate}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" }
+            });
+            if (response.ok) {
+                history("/")
+            }
+        } catch (error) {
+            console.error("No se ha podido eliminar el producto", error);
+        }
+        navigate("/home")
+    }
+
 
     return (
         <>
@@ -149,11 +172,10 @@ const Home = () => {
 
                 <h1 className="home-title">Galena</h1>
 
-                {/* Modo colorido */}
-                {/* <div onClick={() => rainbowMode == false ? setRainbowMode(rainbowMode = true) : setRainbowMode(rainbowMode = false)} className={rainbowMode == false ? "home-right" : "invisible"}>
-                    <img title="modo colorido ultra rgb mega rainbow reluciente con brillo ascendente de luna diamantina plus XY galaxial nebuloso dorado" className="home-icons" src={rainbow} alt="modo color" />
-                </div> */}
-                {/* Ya no hay modo colorido */}
+                <div className={adminLv == "webAdminUser" ? "home-right" : "invisible"}>
+                    <a href="/Admin" title="admin" className={adminLv == "webAdminUser" ? "home-icons" : "invisible"}>Admin</a>
+                </div>
+
             </header>
 
             {/* Contenido principal */}
@@ -174,24 +196,28 @@ const Home = () => {
 
                         <div className="productBox" key={index}>
                             <div>
-                                <span>{cont.name} : </span>
-                                <span> {cont.price}</span>
+                                <span className="font-bold">{cont.name} </span>
+                                <button className={adminLv == "webAdminUser" ? "averageButton averageIcon font-bold" : "invisible"} onClick={() => setIdToEliminate(idToEliminate = cont._id)}> |Seleccionar| </button>
+                                <p className="productText">Precio: {cont.price}</p>
                             </div>
                             <div>
-                                <img className="border border-gray-900" src={cont.image} alt="imagen" />
-                                <p className="border border-gray-900 p-2">{cont.desrc}</p>
+                                <img className="border border-gray-900 productImage" src={cont.image} alt="imagen" />
+                                <div className="border border-gray-900 p-2 font-bold">
+                                    <span>{cont.ownerName}; </span>
+                                    <span> {cont.contact}; </span>
+                                    <span> {cont.localization}</span>
+                                </div>
                             </div>
-                            <div className="data">
-                                <span>{cont.ownerName}; </span>
-                                <span> {cont.contact}; </span>
-                                <span> {cont.localization}</span>
+                            <div>
+                                <p className=" p-2 productText">{cont.desrc} </p>
                             </div>
                             <div className="buttonsBox">
                                 <button className="averageButton averageIcon" onClick={() => handleAddToCart(cont._id)}><img src={cart} alt="editar" title="editar el producto" /></button>
+                                <button className={adminLv == "webAdminUser" ? "averageButton averageIcon ml-10" : "invisible"} onClick={handleEliminateProduct}>
+                                    <img src={trash} alt="eliminar" title="eliminar el producto" /></button>
                             </div>
                         </div>
                     ))}
-                    {console.log(search)}
                 </div>
             </main>
         </>

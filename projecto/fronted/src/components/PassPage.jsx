@@ -51,7 +51,7 @@ const PassPage = () => {
     }
     setTimeout(() => {
         navigate("/home")
-    },1000)
+    },50)
 
     return (
         <>
