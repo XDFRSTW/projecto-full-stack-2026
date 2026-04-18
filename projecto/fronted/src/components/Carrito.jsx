@@ -127,7 +127,7 @@ const Carrito = () => {
                                 <p className=" p-2 productText">{cont.desrc} </p>
                             </div>
                             <div className="buttonsBox">
-                                <button className="averageButton averageIcon" onClick={() => { setCartDelete(cartDelete = cont._id), handleDelete(), console.log(2) }}><img src={trash} alt="edliminar" title="eliminar el producto" /></button>
+                                <button className="averageButton averageIcon button" onClick={() => { setCartDelete(cartDelete = cont._id), handleDelete(), console.log(2) }}><img src={trash} alt="edliminar" title="eliminar el producto" /></button>
                             </div>
                         </div>
                     ))}

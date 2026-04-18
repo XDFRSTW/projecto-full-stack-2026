@@ -145,7 +145,7 @@ const RegLog = () => {
 
                     {/* Información proporcionada al usuario */}
                     <div className="regLog-info regLog-flex flex">
-                        <p className="regLog-info-text mt-12">Una vez registrado, vuelve a introducir los datos seleccionando la opción "Iniciar sesión" (si no sucede nada es porque el usuario no existel). La creación del usuario puede llevar un rato, un mensaje por pantalla te avisará de ello (a veces el mensaje se equivoca y no se crea el usuario)||(si al registrarse le sale el mensaje: "El nombre de usuario ya existe", reinicie la página e introduzca otro usuario, de lo contrariao siempre aparecerá dicho mensaje).</p>
+                        <p className="regLog-info-text mt-12">Una vez registrado, vuelve a introducir los datos seleccionando la opción "Iniciar sesión" (si no sucede nada es porque el usuario no existel). La creación del usuario puede llevar un rato, un mensaje por pantalla te avisará de ello (a veces el mensaje se equivoca y no se crea el usuario)||(si al registrarse le sale el mensaje: "El nombre de usuario ya existe", reinicie la página e introduzca otro usuario, de lo contrariao siempre aparecerá dicho mensaje)[Si nota que la página no funciona correctamente, lo más probable será que el servido este fallando].</p>
                     </div>
 
                     <div className="regLog-flex regLog-averageFontSize flex mt-12">

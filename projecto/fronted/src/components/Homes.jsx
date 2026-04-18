@@ -213,7 +213,7 @@ const Home = () => {
                                 <p className=" p-2 productText">{cont.desrc} </p>
                             </div>
                             <div className="buttonsBox">
-                                <button className="averageButton averageIcon" onClick={() => {handleAddToCart(cont._id), setContact(contact = cont.contact),
+                                <button className="averageButton averageIcon button" onClick={() => {handleAddToCart(cont._id), setContact(contact = cont.contact),
                                     setLocalization(localization = cont.localization), setDesrc(desrc = cont.desrc), setImage(image = cont.image),
                                     setName(name = cont.name), setOwnerName(ownerName = cont.ownerName), setPrice(price = cont.price)
                                 }}><img src={cart} alt="editar" title="editar el producto" /></button>

@@ -152,17 +152,19 @@ const Productos = () => {
                     {list.map((cont, index) => (
                         <div className="productBox" key={index}>
                             <div>
-                                <span>{cont.name} : </span>
-                                <span> {cont.price}</span>
+                               <span className="font-bold">{cont.name} </span>                           
+                                <p className="productText text-2xl mb-4"><span className="underline">Precio:</span> {cont.price}</p>
                             </div>
                             <div>
-                                <img className="border border-gray-900" src={cont.image} alt="imagen" />
-                                <p className="border border-gray-900 p-2">{cont.desrc}</p>
+                                <img className="border border-gray-900 productImage" src={cont.image} alt="imagen" />
+                                <div className="border border-gray-900 p-2 font-bold">
+                                    <span>{cont.ownerName}; </span>
+                                    <span> {cont.contact}; </span>
+                                    <span> {cont.localization}</span>
+                                </div>
                             </div>
-                            <div className="data">
-                                <span>{cont.ownerName}; </span>
-                                <span> {cont.contact}; </span>
-                                <span> {cont.localization}</span>
+                            <div>
+                                <p className=" p-2 productText">{cont.desrc} </p>
                             </div>
                             <div className="buttonsBox">
                                 <button className="averageButton averageIcon" onClick={() => setProductId(productId = cont._id)}><a href="/editar"><img src={pencil} alt="editar" title="editar el producto" /></a></button>
