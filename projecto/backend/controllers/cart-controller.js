@@ -4,12 +4,19 @@ const jwt = require("jsonwebtoken");
 
 // añadir al carrito
 async function addToCart(req, res) {
-    const { userId, productId } = req.body;
+    const { userId, productId, ownerName, name, desrc, image, price, localization, contact } = req.body;
     try {
 
         const newCart = new Cart({
             userId,
-            productId
+            productId,
+            ownerName,
+            name,
+            desrc,
+            image,
+            price,
+            localization,
+            contact
         });
 
         await newCart.save();

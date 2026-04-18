@@ -271,10 +271,9 @@ body {
     margin: auto auto auto 75%;
 }
 
-/* .productImage{
-    
-   
-} */
+.productImage{
+    width: 60vw;
+}
 
 
 /* Clase que no se usó */

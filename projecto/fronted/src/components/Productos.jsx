@@ -55,7 +55,7 @@ const Productos = () => {
             .then((data) => data.map((dat, index) => { dat.password == Desolation ? length = index : console.log(), dat.password == Desolation ? setUserImage(userImage = dat.userImage) : console.log() }))
             .catch((error) => console.error("Error al obtener el usuario", error));
     }
-    // Debería usarse useEffect para ejecutar esta porción de código. No lo use porque no es necesario (alparecer si que lo acabé usando)
+    // Debería usarse useEffect para ejecutar esta porción de código. No lo use porque no es necesario (al parecer si que lo acabé usando)
     if (Desolation != "Not yet") {
         useEffect(() => {
             fetchFix()
@@ -96,39 +96,39 @@ const Productos = () => {
 
     // Función para el botón de eliminar producto (Da error en consola, pero de todas formas funciona)
 
-    useEffect(() => {
-        if (productDelete =! "no") {
-            try {
-                const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
-                    method: "DELETE",
-                    headers: { "Content-Type": "application/json" }
-                });
-                if (response.ok) {
-                    history("/")
-                }
-            } catch (error) {
-                console.error("No se ha podido eliminar el producto", error);
-            }
-            navigate("/Productos")
-        }
-    }, [productDelete])
+    // useEffect(() => {
+    //     if (productDelete =! "no") {
+    //         try {
+    //             const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
+    //                 method: "DELETE",
+    //                 headers: { "Content-Type": "application/json" }
+    //             });
+    //             if (response.ok) {
+    //                 history("/")
+    //             }
+    //         } catch (error) {
+    //             console.error("No se ha podido eliminar el producto", error);
+    //         }
+    //         navigate("/Productos")
+    //     }
+    // }, [productDelete])
 
 
 
-    function handleDelete() {
-        try {
-            const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
-                method: "DELETE",
-                headers: { "Content-Type": "application/json" }
-            });
-            if (response.ok) {
-                history("/")
-            }
-        } catch (error) {
-            console.error("No se ha podido eliminar el producto", error);
-        }
-        navigate("/Productos")
-    }
+    // function handleDelete() {
+    //     try {
+    //         const response = fetch(`https://produccion-livid.vercel.app/products/delete/${productDelete}`, {
+    //             method: "DELETE",
+    //             headers: { "Content-Type": "application/json" }
+    //         });
+    //         if (response.ok) {
+    //             history("/")
+    //         }
+    //     } catch (error) {
+    //         console.error("No se ha podido eliminar el producto", error);
+    //     }
+    //     navigate("/Productos")
+    // }
 
     // Función para editar el producto
 

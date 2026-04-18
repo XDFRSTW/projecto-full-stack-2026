@@ -115,7 +115,7 @@ const Editar = () => {
             {/* 1000 veces la misma clase Css en el mismo contenedor, porque las cosas bellas deberían repetirse siempre */}
             <main className="main">
                 {/* Te lleva a la página principal para evitar que el usuario se tope con errores de la página */}
-                <div><a className="button editar-volver" href="/home" title="volver">Volver</a></div>
+                <div><a className="button editar-volver" href="/productos" title="volver">Volver</a></div>
 
                 {/* Producto que vas a editar */}
                 <div className="main">

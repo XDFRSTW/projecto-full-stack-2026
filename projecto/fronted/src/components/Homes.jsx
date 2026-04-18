@@ -40,6 +40,7 @@ const Home = () => {
 
     // Hablamos del producto
 
+
     // Nombre usuario
     let [ownerName, setOwnerName] = useState("");
     // Nombre producto
@@ -123,7 +124,7 @@ const Home = () => {
             const response = fetch("https://produccion-livid.vercel.app/carts/add", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ userId, productId })
+                body: JSON.stringify({ userId, productId, ownerName, name, desrc, image, price, localization, contact })
             });
             if (response.ok) {
                 history("/")
@@ -198,7 +199,7 @@ const Home = () => {
                             <div>
                                 <span className="font-bold">{cont.name} </span>
                                 <button className={adminLv == "webAdminUser" ? "averageButton averageIcon font-bold" : "invisible"} onClick={() => setIdToEliminate(idToEliminate = cont._id)}> |Seleccionar| </button>
-                                <p className="productText">Precio: {cont.price}</p>
+                                <p className="productText text-2xl mb-4"><span className="underline">Precio:</span> {cont.price}</p>
                             </div>
                             <div>
                                 <img className="border border-gray-900 productImage" src={cont.image} alt="imagen" />
@@ -212,7 +213,10 @@ const Home = () => {
                                 <p className=" p-2 productText">{cont.desrc} </p>
                             </div>
                             <div className="buttonsBox">
-                                <button className="averageButton averageIcon" onClick={() => handleAddToCart(cont._id)}><img src={cart} alt="editar" title="editar el producto" /></button>
+                                <button className="averageButton averageIcon" onClick={() => {handleAddToCart(cont._id), setContact(contact = cont.contact),
+                                    setLocalization(localization = cont.localization), setDesrc(desrc = cont.desrc), setImage(image = cont.image),
+                                    setName(name = cont.name), setOwnerName(ownerName = cont.ownerName), setPrice(price = cont.price)
+                                }}><img src={cart} alt="editar" title="editar el producto" /></button>
                                 <button className={adminLv == "webAdminUser" ? "averageButton averageIcon ml-10" : "invisible"} onClick={handleEliminateProduct}>
                                     <img src={trash} alt="eliminar" title="eliminar el producto" /></button>
                             </div>
