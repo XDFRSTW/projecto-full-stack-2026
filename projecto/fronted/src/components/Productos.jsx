@@ -156,7 +156,7 @@ const Productos = () => {
                                 <p className="productText text-2xl mb-4"><span className="underline">Precio:</span> {cont.price}</p>
                             </div>
                             <div>
-                                <img className="border border-gray-900 productImage" src={cont.image} alt="imagen" />
+                                <img loading="lazy" className="border border-gray-900 productImage" src={cont.image} alt="imagen" />
                                 <div className="border border-gray-900 p-2 font-bold">
                                     <span>{cont.ownerName}; </span>
                                     <span> {cont.contact}; </span>

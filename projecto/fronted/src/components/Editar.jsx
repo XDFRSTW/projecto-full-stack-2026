@@ -128,7 +128,7 @@ const Editar = () => {
                                 <span> {price}</span>
                             </div>
                             <div>
-                                <img className="border border-gray-900" src={image} alt="imagen" />
+                                <img loading="lazy" className="border border-gray-900" src={image} alt="imagen" />
                                 <p className="border border-gray-900 p-2">{desrc}</p>
                             </div>
                             <div className="data">

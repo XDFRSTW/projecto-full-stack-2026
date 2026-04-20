@@ -76,7 +76,7 @@ const Admin = () => {
                                 <span className="font-bold underline text-lg">{cont.username}</span>
                             </div>
                             <div>
-                                <img className="border border-gray-900 productImage" src={cont.userImage} alt="imagen" />
+                                <img loading="lazy" className="border border-gray-900 productImage" src={cont.userImage} alt="imagen" />
                             </div>
                             <div className="admin-buttonsBox">
                                 <button className="averageButton averageIcon font-bold" onClick={() => setIdToEliminate(idToEliminate = cont._id)}>Seleccionar</button>
